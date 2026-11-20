@@ -43,7 +43,7 @@ export const WorkOrderCard = ({ item }) => {
           </div>
           <div className='text-xs text-[var(--text-muted)] mt-1'>Alert {item.alert_id} • {formatRelativeTime(item.ticket?.created_at || new Date().toISOString())}</div>
         </div>
-        <div className='text-xs font-mono'>Conf {(item.confidence*100).toFixed(0)}%</div>
+        <div className='text-xs font-mono'>Conf {((item.confidence ?? 0)*100).toFixed(0)}%</div>
       </div>
 
       <div className='mt-2'>

@@ -45,7 +45,7 @@ export const Alerts = () => {
                   <td className='p-2'><Link to={`/alerts/${a.alert_id}`}><SeverityBadge severity={a.severity} /></Link></td>
                   <td className='p-2 font-mono'>{a.machine_id}</td>
                   <td className='p-2'>{a.alert_type}</td>
-                  <td className='p-2 font-mono'>{ (a.confidence*100).toFixed(0)}%<div className='h-1 bg-[var(--border)] rounded mt-1 w-16'><div className='h-full bg-[var(--steel)]' style={{ width: `${a.confidence*100}%` }} /></div></td>
+                  <td className='p-2 font-mono'>{ ((a.confidence ?? 0)*100).toFixed(0)}%<div className='h-1 bg-[var(--border)] rounded mt-1 w-16'><div className='h-full bg-[var(--steel)]' style={{ width: `${a.confidence*100}%` }} /></div></td>
                   <td className='p-2 font-mono' title={formatAbsoluteTime(a.ts)}>{formatRelativeTime(a.ts)}</td>
                   <td className='p-2'>{a.status}</td>
                   <td className='p-2'><div className='flex gap-1'>{['detected','diagnosed','planned','awaiting_approval','ticketed'].map(step => <div key={step} className={`w-2 h-2 rounded-full ${['detected','diagnosed','planned','awaiting_approval','ticketed'].indexOf(a.status) >= ['detected','diagnosed','planned','awaiting_approval','ticketed'].indexOf(step) || a.status===step ? 'bg-[var(--accent)]' : 'bg-[var(--border)]'}`} title={step} />)}</div></td>

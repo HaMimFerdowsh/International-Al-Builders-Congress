@@ -61,7 +61,7 @@ export const Knowledge = () => {
               <div className='text-sm font-mono bg-[var(--bg)] p-2 rounded border border-[var(--border)] mt-2' dangerouslySetInnerHTML={{ __html: (r.text || r.highlight || '').replace(new RegExp(query, 'gi'), (m) => query ? `<mark class="bg-[var(--warning)]/30">${m}</mark>` : m) }} />
               <div className='mt-2 flex items-center gap-2'>
                 <div className='flex-1 h-2 bg-[var(--border)] rounded-full overflow-hidden'><div className='h-full bg-[var(--accent)]' style={{ width: `${(r.score*100)}%` }} /></div>
-                <span className='text-xs font-mono'>{ (r.score*100).toFixed(0)}% similarity</span>
+                <span className='text-xs font-mono'>{ ((r.score ?? 0)*100).toFixed(0)}% similarity</span>
               </div>
               <div className='text-[10px] text-[var(--text-muted)] mt-1'>Higher percentage means closer match to your query. Based on cosine similarity of embeddings.</div>
             </Card>

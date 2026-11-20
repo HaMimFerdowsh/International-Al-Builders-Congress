@@ -10,7 +10,7 @@ export const AlertRow = ({ alert }) => {
         <div className='flex items-center gap-2'>
           <span className='font-mono text-xs'>{alert.machine_id}</span>
           <span className='text-xs text-[var(--text-muted)]'>{alert.alert_type}</span>
-          <span className='text-xs font-mono tabular'>conf { (alert.confidence*100).toFixed(0)}%</span>
+          <span className='text-xs font-mono tabular'>conf { ((alert.confidence ?? 0)*100).toFixed(0)}%</span>
         </div>
         <div className='text-xs text-[var(--text-muted)] truncate'>{alert.description || alert.alert_id}</div>
       </div>
